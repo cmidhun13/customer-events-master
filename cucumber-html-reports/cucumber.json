@@ -1,0 +1,232 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "create customer fails when organization is not provided",
+        "description": "",
+        "id": "testing-customer-rest-api;create-customer-fails-when-organization-is-not-provided",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1891057900,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I am user and entering customer details",
+            "match": {
+              "location": "CustomerControllerAcceptanceTest.i_am_user_and_entering_customer_details()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 579400,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "organization is not provided",
+            "match": {
+              "location": "CustomerControllerAcceptanceTest.organization_is_not_provided()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1516214800,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "Call create api with givens details",
+            "match": {
+              "location": "CustomerControllerAcceptanceTest.call_create_api_with_givens_details()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 37503300,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "Return client error as  organization is not provided in payload post request",
+            "match": {
+              "location": "CustomerControllerAcceptanceTest.return_client_error_organization_is_not_provided_in_post_request()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 10,
+        "name": "create customer Success",
+        "description": "",
+        "id": "testing-customer-rest-api;create-customer-success",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 18570200,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "Enter customer details with organization in payload",
+            "match": {
+              "location": "CustomerControllerAcceptanceTest.enter_customer_details_with_organization_in_payload()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 726700,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "organization is provided with valid id",
+            "match": {
+              "location": "CustomerControllerAcceptanceTest.organization_is_provided_with_valid_id()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 337927000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "create the customer with given details",
+            "match": {
+              "location": "CustomerControllerAcceptanceTest.create_the_customer_with_given_details()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Testing customer REST API",
+    "description": "",
+    "id": "testing-customer-rest-api",
+    "keyword": "Feature",
+    "uri": "src/test/resources/Features/create_customer.feature",
+    "tags": []
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "update customer fails when customerId not provided",
+        "description": "",
+        "id": "testing-customer-update-rest-api;update-customer-fails-when-customerid-not-provided",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 31959700,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I am user and entering update details",
+            "match": {
+              "location": "CustomerControllerAcceptanceTest.i_am_user_and_entering_update_details()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 458900,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "customerId is not provided",
+            "match": {
+              "location": "CustomerControllerAcceptanceTest.customerid_is_not_provided()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 308176300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "Call update api with givens details",
+            "match": {
+              "location": "CustomerControllerAcceptanceTest.call_update_api_with_givens_details()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 16768000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "Return client error as  update is not provided in payload put request",
+            "match": {
+              "location": "CustomerControllerAcceptanceTest.return_client_error_as_update_is_not_provided_in_payload_put_request()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 10,
+        "name": "update customer Success",
+        "description": "",
+        "id": "testing-customer-update-rest-api;update-customer-success",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 56324800,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "Enter customer details with valid customerId in payload",
+            "match": {
+              "location": "CustomerControllerAcceptanceTest.enter_customer_details_with_valid_customerId_in_payload()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 661700,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "update details is provided with valid id",
+            "match": {
+              "location": "CustomerControllerAcceptanceTest.update_details_is_provided_with_valid_id()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 211655100,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "update the customer with given details",
+            "match": {
+              "location": "CustomerControllerAcceptanceTest.update_the_customer_with_given_details()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Testing customer update REST API",
+    "description": "",
+    "id": "testing-customer-update-rest-api",
+    "keyword": "Feature",
+    "uri": "src/test/resources/Features/update_customer.feature",
+    "tags": []
+  }
+]

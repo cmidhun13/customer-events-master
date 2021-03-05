@@ -1,0 +1,350 @@
+{
+	"info": {
+		"_postman_id": "e776d8c0-eb4e-49e2-927b-819870fa87cc",
+		"name": "Customer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customer Activate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\r\n   \"customerUserId\":\"dev.worthy1@gmail.com\",\r\n   \"activationCode\":\"920566\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/customer/activate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"customer",
+						"activate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "web enabled",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer sdfdf",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orgDetail\": {\r\n        \"organizationName\":\"Syzgee\",\r\n         \"createdBy\": \"John smith\"\r\n    },\r\n    \"customerDetail\": {\r\n             \"createdBy\": \"John smith\"\r\n    },\r\n    \"userDetail\": {\r\n        \"firstName\": \"Lakshmi\",\r\n        \"lastName\": \"N S\",\r\n        \"emailId\": \"dev.worthy2@gmail.com\",\r\n        \"createdBy\": \"John smith\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/customer/webenabled",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"customer",
+						"webenabled"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer user details",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    customerUserByEmailId(emailId: \"dev.worthy1@gmail.com\"){\n    emailId\n    customerId\n    firstName\n    lastName\n    correlationId\n    createdBy\n    createdDate\n    updatedBy\n    updatedDate\n\n    }\n }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/customerUserDetails",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customerUserDetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get solicitation Name by customer Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJuRmhiUXdURTZVNk0wc3lsUHFIWVZiWVV2NTFINHBFbEUtNXp2Nlp6T1VnIn0.eyJqdGkiOiI4Mzg3MWY3NS0zZmNlLTQ4NDktYmFhZC05YTIyNmU0NDdmZTciLCJleHAiOjE1OTQ5MDMzMDMsIm5iZiI6MCwiaWF0IjoxNTk0ODk3MzAzLCJpc3MiOiJodHRwOi8vZWMyLTE4LTE5MS0xOTktMjM3LnVzLWVhc3QtMi5jb21wdXRlLmFtYXpvbmF3cy5jb206ODA4MC9hdXRoL3JlYWxtcy9tYXN0ZXIiLCJhdWQiOlsiTWF1dGljLXJlYWxtIiwic3plbGxzLXJlYWxtIiwibWFzdGVyLXJlYWxtIiwibWF1dGljLXJlYWxtIiwiYWNjb3VudCJdLCJzdWIiOiI3NmQ0OGMwYi02ZDEyLTRiNjgtOWIwMi04YzM1MzQyMzdhNTMiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzemVsbHMtc2VydmVyIiwiYXV0aF90aW1lIjowLCJzZXNzaW9uX3N0YXRlIjoiNjdhMTNmY2YtMTA0MC00YzM4LTg3NDEtNGYxOWNhOTlmZGFmIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImNyZWF0ZS1yZWFsbSIsIm9mZmxpbmVfYWNjZXNzIiwiYWRtaW4iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7InN6ZWxscy1zZXJ2ZXIiOnsicm9sZXMiOlsidW1hX3Byb3RlY3Rpb24iXX0sIk1hdXRpYy1yZWFsbSI6eyJyb2xlcyI6WyJ2aWV3LWlkZW50aXR5LXByb3ZpZGVycyIsInZpZXctcmVhbG0iLCJtYW5hZ2UtaWRlbnRpdHktcHJvdmlkZXJzIiwiaW1wZXJzb25hdGlvbiIsImNyZWF0ZS1jbGllbnQiLCJtYW5hZ2UtdXNlcnMiLCJxdWVyeS1yZWFsbXMiLCJ2aWV3LWF1dGhvcml6YXRpb24iLCJxdWVyeS1jbGllbnRzIiwicXVlcnktdXNlcnMiLCJtYW5hZ2UtZXZlbnRzIiwibWFuYWdlLXJlYWxtIiwidmlldy1ldmVudHMiLCJ2aWV3LXVzZXJzIiwidmlldy1jbGllbnRzIiwibWFuYWdlLWF1dGhvcml6YXRpb24iLCJtYW5hZ2UtY2xpZW50cyIsInF1ZXJ5LWdyb3VwcyJdfSwic3plbGxzLXJlYWxtIjp7InJvbGVzIjpbInZpZXctaWRlbnRpdHktcHJvdmlkZXJzIiwidmlldy1yZWFsbSIsIm1hbmFnZS1pZGVudGl0eS1wcm92aWRlcnMiLCJpbXBlcnNvbmF0aW9uIiwiY3JlYXRlLWNsaWVudCIsIm1hbmFnZS11c2VycyIsInF1ZXJ5LXJlYWxtcyIsInZpZXctYXV0aG9yaXphdGlvbiIsInF1ZXJ5LWNsaWVudHMiLCJxdWVyeS11c2VycyIsIm1hbmFnZS1ldmVudHMiLCJtYW5hZ2UtcmVhbG0iLCJ2aWV3LWV2ZW50cyIsInZpZXctdXNlcnMiLCJ2aWV3LWNsaWVudHMiLCJtYW5hZ2UtYXV0aG9yaXphdGlvbiIsIm1hbmFnZS1jbGllbnRzIiwicXVlcnktZ3JvdXBzIl19LCJtYXN0ZXItcmVhbG0iOnsicm9sZXMiOlsidmlldy1yZWFsbSIsInZpZXctaWRlbnRpdHktcHJvdmlkZXJzIiwibWFuYWdlLWlkZW50aXR5LXByb3ZpZGVycyIsImltcGVyc29uYXRpb24iLCJjcmVhdGUtY2xpZW50IiwibWFuYWdlLXVzZXJzIiwicXVlcnktcmVhbG1zIiwidmlldy1hdXRob3JpemF0aW9uIiwicXVlcnktY2xpZW50cyIsInF1ZXJ5LXVzZXJzIiwibWFuYWdlLWV2ZW50cyIsIm1hbmFnZS1yZWFsbSIsInZpZXctZXZlbnRzIiwidmlldy11c2VycyIsInZpZXctY2xpZW50cyIsIm1hbmFnZS1hdXRob3JpemF0aW9uIiwibWFuYWdlLWNsaWVudHMiLCJxdWVyeS1ncm91cHMiXX0sIm1hdXRpYy1yZWFsbSI6eyJyb2xlcyI6WyJ2aWV3LWlkZW50aXR5LXByb3ZpZGVycyIsInZpZXctcmVhbG0iLCJtYW5hZ2UtaWRlbnRpdHktcHJvdmlkZXJzIiwiaW1wZXJzb25hdGlvbiIsImNyZWF0ZS1jbGllbnQiLCJtYW5hZ2UtdXNlcnMiLCJxdWVyeS1yZWFsbXMiLCJ2aWV3LWF1dGhvcml6YXRpb24iLCJxdWVyeS1jbGllbnRzIiwicXVlcnktdXNlcnMiLCJtYW5hZ2UtZXZlbnRzIiwibWFuYWdlLXJlYWxtIiwidmlldy1ldmVudHMiLCJ2aWV3LXVzZXJzIiwidmlldy1jbGllbnRzIiwibWFuYWdlLWF1dGhvcml6YXRpb24iLCJtYW5hZ2UtY2xpZW50cyIsInF1ZXJ5LWdyb3VwcyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJ1c2VyX2lkIjoiNzZkNDhjMGItNmQxMi00YjY4LTliMDItOGMzNTM0MjM3YTUzIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiZGV2LndvcnRoeTFAZ21haWwuY29tIn0.Fyii2j5QN3NQg1PLiUDdW-sL6tBVxVBLitzSZUkyNyZvQcQhB2zZPgl7tDbJGg4KoP5zSSTii0vH_cOPV4dkH7ap06gvYjC9-B6V-CMgP9eoa6ZNsDoijJVKFdeWQ-5tIIjyEMUoqQTeD8so0MMZJGL2ijdrw2mWmUN7l0mhh_H-aTOVK5tfsRljeVcUkl-vOce5CUH6BAdKXTG98nlsAd0nyGWG_UHoEuOyaQOsOJ9JxIwYMFpcGyZkZu5uAWBlRQXcy9RCvFj2ldKKfPPz5piaiCZ1Uvma1xhGoPPTQ-zIx_NegZjpLf0ydgdMGen7rYP1qVvga2U3BvIyAvW55w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    getSolicitationPackage(customerId: 66){\r\n        solicitationId\r\n        solicitationName\r\n\r\n        }\r\n }",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/solicitation/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"solicitation",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create update Profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJuRmhiUXdURTZVNk0wc3lsUHFIWVZiWVV2NTFINHBFbEUtNXp2Nlp6T1VnIn0.eyJqdGkiOiJhMzI3YWZmYS1hMzAwLTQzYTktYWIxNi1lYTA2YWYzOWY1MTYiLCJleHAiOjE1OTUyNDgxODgsIm5iZiI6MCwiaWF0IjoxNTk1MjQyMTg4LCJpc3MiOiJodHRwOi8vZWMyLTE4LTE5MS0xOTktMjM3LnVzLWVhc3QtMi5jb21wdXRlLmFtYXpvbmF3cy5jb206ODA4MC9hdXRoL3JlYWxtcy9tYXN0ZXIiLCJhdWQiOlsiTWF1dGljLXJlYWxtIiwic3plbGxzLXJlYWxtIiwibWFzdGVyLXJlYWxtIiwibWF1dGljLXJlYWxtIiwiYWNjb3VudCJdLCJzdWIiOiJkYTUyZDA3ZC1lODg3LTRiMzgtOWM5NS1lMDhmY2I4ZDliZTQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzemVsbHMtc2VydmVyIiwiYXV0aF90aW1lIjowLCJzZXNzaW9uX3N0YXRlIjoiY2Q5YWZiOTAtODllMy00NjFmLWIyNmQtNTYxYzZhMTkxNGU3IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImNyZWF0ZS1yZWFsbSIsIm9mZmxpbmVfYWNjZXNzIiwiYWRtaW4iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7InN6ZWxscy1zZXJ2ZXIiOnsicm9sZXMiOlsidW1hX3Byb3RlY3Rpb24iXX0sIk1hdXRpYy1yZWFsbSI6eyJyb2xlcyI6WyJ2aWV3LWlkZW50aXR5LXByb3ZpZGVycyIsInZpZXctcmVhbG0iLCJtYW5hZ2UtaWRlbnRpdHktcHJvdmlkZXJzIiwiaW1wZXJzb25hdGlvbiIsImNyZWF0ZS1jbGllbnQiLCJtYW5hZ2UtdXNlcnMiLCJxdWVyeS1yZWFsbXMiLCJ2aWV3LWF1dGhvcml6YXRpb24iLCJxdWVyeS1jbGllbnRzIiwicXVlcnktdXNlcnMiLCJtYW5hZ2UtZXZlbnRzIiwibWFuYWdlLXJlYWxtIiwidmlldy1ldmVudHMiLCJ2aWV3LXVzZXJzIiwidmlldy1jbGllbnRzIiwibWFuYWdlLWF1dGhvcml6YXRpb24iLCJtYW5hZ2UtY2xpZW50cyIsInF1ZXJ5LWdyb3VwcyJdfSwic3plbGxzLXJlYWxtIjp7InJvbGVzIjpbInZpZXctaWRlbnRpdHktcHJvdmlkZXJzIiwidmlldy1yZWFsbSIsIm1hbmFnZS1pZGVudGl0eS1wcm92aWRlcnMiLCJpbXBlcnNvbmF0aW9uIiwiY3JlYXRlLWNsaWVudCIsIm1hbmFnZS11c2VycyIsInF1ZXJ5LXJlYWxtcyIsInZpZXctYXV0aG9yaXphdGlvbiIsInF1ZXJ5LWNsaWVudHMiLCJxdWVyeS11c2VycyIsIm1hbmFnZS1ldmVudHMiLCJtYW5hZ2UtcmVhbG0iLCJ2aWV3LWV2ZW50cyIsInZpZXctdXNlcnMiLCJ2aWV3LWNsaWVudHMiLCJtYW5hZ2UtYXV0aG9yaXphdGlvbiIsIm1hbmFnZS1jbGllbnRzIiwicXVlcnktZ3JvdXBzIl19LCJtYXN0ZXItcmVhbG0iOnsicm9sZXMiOlsidmlldy1yZWFsbSIsInZpZXctaWRlbnRpdHktcHJvdmlkZXJzIiwibWFuYWdlLWlkZW50aXR5LXByb3ZpZGVycyIsImltcGVyc29uYXRpb24iLCJjcmVhdGUtY2xpZW50IiwibWFuYWdlLXVzZXJzIiwicXVlcnktcmVhbG1zIiwidmlldy1hdXRob3JpemF0aW9uIiwicXVlcnktY2xpZW50cyIsInF1ZXJ5LXVzZXJzIiwibWFuYWdlLWV2ZW50cyIsIm1hbmFnZS1yZWFsbSIsInZpZXctZXZlbnRzIiwidmlldy11c2VycyIsInZpZXctY2xpZW50cyIsIm1hbmFnZS1hdXRob3JpemF0aW9uIiwibWFuYWdlLWNsaWVudHMiLCJxdWVyeS1ncm91cHMiXX0sIm1hdXRpYy1yZWFsbSI6eyJyb2xlcyI6WyJ2aWV3LWlkZW50aXR5LXByb3ZpZGVycyIsInZpZXctcmVhbG0iLCJtYW5hZ2UtaWRlbnRpdHktcHJvdmlkZXJzIiwiaW1wZXJzb25hdGlvbiIsImNyZWF0ZS1jbGllbnQiLCJtYW5hZ2UtdXNlcnMiLCJxdWVyeS1yZWFsbXMiLCJ2aWV3LWF1dGhvcml6YXRpb24iLCJxdWVyeS1jbGllbnRzIiwicXVlcnktdXNlcnMiLCJtYW5hZ2UtZXZlbnRzIiwibWFuYWdlLXJlYWxtIiwidmlldy1ldmVudHMiLCJ2aWV3LXVzZXJzIiwidmlldy1jbGllbnRzIiwibWFuYWdlLWF1dGhvcml6YXRpb24iLCJtYW5hZ2UtY2xpZW50cyIsInF1ZXJ5LWdyb3VwcyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJ1c2VyX2lkIjoiZGE1MmQwN2QtZTg4Ny00YjM4LTljOTUtZTA4ZmNiOGQ5YmU0IiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYXJ1bkBnbWFpbC5jb20ifQ.GPIAhuUF_pqcX_W5tUZUVIMblO2Ar7KD6YQPW_TQomcW5TkeMMjXTDo4XfwKRWyhL1rFNv11vXDjUs6SVliOpd1cSLBMDMSCoSoq6REG7p-7dI2YoScwfqxRSU8bgkBMnG0w1g_kA8Hr-V543cUVo8xvvJNMx1e_5LKMnospmFjwFwDODz8Dhy35IXVIsb81HnjztoN4sjVLoTPHNafltleWL6yz9Xcg6-Nd3u1aUAurH1DJjpJBcIBuPcTAxRhA79lAHCf61pg-3inl9hQ1eHuajDZSyek5VLarGfz5IovgY76LWBlFWri_xNEI-GJ-hNKskse8626DjREpxl0shQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orgDetail\": {\r\n        \"organizationSize\": \"500+\",\r\n        \"updatedBy\": \"John smith1\"\r\n    },\r\n    \"customerDetail\": {\r\n        \"userId\": \"12345689\",\r\n        \"businessName\": \"sagr jackiea\",\r\n        \"businessEmail\": \"dev.worthy@gmail.com\",\r\n        \"businessType\": \"FLIGHT\",\r\n        \"businessCategory\": \"C2B\",\r\n        \"phoneNo\": \"9980137288\",\r\n        \"currency\": \"345\",\r\n        \"communicationPreferences\": \"sms\",\r\n        \"region\": \"India\",\r\n        \"updatedBy\": \"John smith1\"\r\n    },\r\n    \"custAddressDetail\": \r\n        {\r\n        \"addressLine1\": \"HSR Layout\",\r\n        \"addressLine2\": \"BTM\",\r\n        \"addressLine3\": \"India\",\r\n        \"city\": \"Bangalore\",\r\n        \"sate\": \"karnataka\",\r\n        \"zipCode\": \"571602\",\r\n        \"countryCode\": \"55555\",\r\n        \"createdBy\": \"John smith\"\r\n      }\r\n      ,\r\n    \"tierDetail\": {\r\n        \"tierName\": \"Custom\",\r\n        \"createdBy\": \"John smith\"\r\n    },\r\n    \"benefitDetail\": [\r\n        {\r\n            \"benefitName\": \"events\",\r\n            \"vendorId\": [\r\n                1,\r\n                2\r\n            ],\r\n            \"imageUrl\": \"http://google.com/sfsfs\",\r\n            \"redirectUrl\": \"http://werwerw.com/\",\r\n            \"createdBy\": \"John smith\"\r\n        },\r\n        {\r\n            \"benefitName\": \"travel\",\r\n            \"vendorId\": [\r\n                3,\r\n                1\r\n            ],\r\n            \"imageUrl\": \"http://google.com/werwerw\",\r\n            \"redirectUrl\": \"http://dgdfgd.com/\",\r\n            \"createdBy\": \"John smith\"\r\n        },\r\n        {\r\n            \"benefitName\": \"cashback\",\r\n            \"vendorId\": [\r\n                3,\r\n                1\r\n            ],\r\n            \"imageUrl\": \"http://google.com/cashback\",\r\n            \"redirectUrl\": \"http://dgdfgd.com/\",\r\n            \"createdBy\": \"John smith\"\r\n        },\r\n        {\r\n            \"benefitName\": \"abc\",\r\n            \"vendorId\": [\r\n                3,\r\n                1\r\n            ],\r\n            \"imageUrl\": \"http://google.com/abc\",\r\n            \"redirectUrl\": \"http://dgdfgd.com/\",\r\n            \"createdBy\": \"John smith\"\r\n        },\r\n\t\t{\r\n            \"benefitName\": \"Dining\",\r\n            \"vendorId\": [\r\n                3,\r\n                1\r\n            ],\r\n            \"imageUrl\": \"http://google.com/abc\",\r\n            \"redirectUrl\": \"http://dgdfgd.com/\",\r\n            \"createdBy\": \"John smith\"\r\n        }\r\n    ],\r\n    \"packagesDetail\": [\r\n        {\r\n            \"packageName\": \"Independence Day Package\",\r\n            \"benefits\": [\r\n                {\r\n                    \"benefitName\": \"travel\",\r\n                    \"createdBy\": \"John smith\"\r\n                },\r\n                {\r\n                    \"benefitName\": \"abc\",\r\n                    \"createdBy\": \"John smith\"\r\n                },\r\n                {\r\n                    \"benefitName\": \"events\",\r\n                    \"createdBy\": \"John smith\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"packageName\": \"Republic Day Package\",\r\n            \"benefits\": [\r\n                {\r\n                    \"benefitName\": \"cashback\",\r\n                    \"createdBy\": \"John smith\"\r\n                },\r\n                {\r\n                    \"benefitName\": \"travel\",\r\n                    \"createdBy\": \"John smith\"\r\n                },\r\n                {\r\n                    \"benefitName\": \"Dining\",\r\n                    \"createdBy\": \"John smith\"\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"solicitationDetail\": [\r\n        {\r\n            \"solicitationName\": \"Winter Campaign\",\r\n            \"solicitationDesc\": \"This Campaign blah blah\",\r\n            \"startDate\": \"2020-11-10\",\r\n            \"endDate\": \"2020-09-14\",\r\n            \"packages\": [\r\n                \"Independence Day Package\"\r\n            ]\r\n        },\r\n        {\r\n            \"solicitationName\": \"Winter Campaign\",\r\n            \"solicitationDesc\": \"This Campaign blah blah\",\r\n            \"startDate\": \"2020-11-10\",\r\n            \"endDate\": \"2020-09-14\",\r\n            \"packages\": [\r\n                \"Independence Day Package\",\r\n                \"Republic Day Package\"\r\n            ]\r\n        }\r\n    ],\r\n    \"domainDetails\": {\r\n        \"siteCode\": \"001\",\r\n        \"templateCode\": \"0022\",\r\n        \"siteName\": \"test\",\r\n        \"siteDesc\": \"wildjasmine sites \",\r\n        \"siteType\": \"Travel\",\r\n        \"domainName\": \"www.wildjasmine.com\",\r\n        \"logo\": \"logo\",\r\n        \"tagline\": \"we think big data\"\r\n    },\r\n    \"customerRule\": {\r\n        \"projectName\": \"Wildjasminess\",\r\n        \"defaultRuleName\": \"syzegee platform rule\"\r\n    },\r\n    \"customerTemplate\": {\r\n        \"customerTemplateId\": \"tp123\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/customer/86",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"customer",
+						"86"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Solicitation",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "dfdfdsds",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\nsolicitationPackage(customer_id:\"66\",solicitation_id:\"3115\"){\n  solicitationId\n  customer{\n    customerId\n    }\n  packages{\n        packageId\n        packageName\n        }\n  }\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/solicitation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"solicitation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJuRmhiUXdURTZVNk0wc3lsUHFIWVZiWVV2NTFINHBFbEUtNXp2Nlp6T1VnIn0.eyJqdGkiOiIxZDA3MTZiMC1iYzBhLTQ5ZTEtODAyMS01ZjQwNjZkOWUzOWQiLCJleHAiOjE1OTQ4MDY4NDgsIm5iZiI6MCwiaWF0IjoxNTk0ODAwODQ4LCJpc3MiOiJodHRwOi8vZWMyLTE4LTE5MS0xOTktMjM3LnVzLWVhc3QtMi5jb21wdXRlLmFtYXpvbmF3cy5jb206ODA4MC9hdXRoL3JlYWxtcy9tYXN0ZXIiLCJhdWQiOlsiTWF1dGljLXJlYWxtIiwic3plbGxzLXJlYWxtIiwibWFzdGVyLXJlYWxtIiwibWF1dGljLXJlYWxtIiwiYWNjb3VudCJdLCJzdWIiOiJkYTUyZDA3ZC1lODg3LTRiMzgtOWM5NS1lMDhmY2I4ZDliZTQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzemVsbHMtc2VydmVyIiwiYXV0aF90aW1lIjowLCJzZXNzaW9uX3N0YXRlIjoiMTdmNTlmMDctMzIzZS00ZWRkLTliNmQtMjliMzQ0N2M5MzRiIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImNyZWF0ZS1yZWFsbSIsIm9mZmxpbmVfYWNjZXNzIiwiYWRtaW4iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7InN6ZWxscy1zZXJ2ZXIiOnsicm9sZXMiOlsidW1hX3Byb3RlY3Rpb24iXX0sIk1hdXRpYy1yZWFsbSI6eyJyb2xlcyI6WyJ2aWV3LWlkZW50aXR5LXByb3ZpZGVycyIsInZpZXctcmVhbG0iLCJtYW5hZ2UtaWRlbnRpdHktcHJvdmlkZXJzIiwiaW1wZXJzb25hdGlvbiIsImNyZWF0ZS1jbGllbnQiLCJtYW5hZ2UtdXNlcnMiLCJxdWVyeS1yZWFsbXMiLCJ2aWV3LWF1dGhvcml6YXRpb24iLCJxdWVyeS1jbGllbnRzIiwicXVlcnktdXNlcnMiLCJtYW5hZ2UtZXZlbnRzIiwibWFuYWdlLXJlYWxtIiwidmlldy1ldmVudHMiLCJ2aWV3LXVzZXJzIiwidmlldy1jbGllbnRzIiwibWFuYWdlLWF1dGhvcml6YXRpb24iLCJtYW5hZ2UtY2xpZW50cyIsInF1ZXJ5LWdyb3VwcyJdfSwic3plbGxzLXJlYWxtIjp7InJvbGVzIjpbInZpZXctaWRlbnRpdHktcHJvdmlkZXJzIiwidmlldy1yZWFsbSIsIm1hbmFnZS1pZGVudGl0eS1wcm92aWRlcnMiLCJpbXBlcnNvbmF0aW9uIiwiY3JlYXRlLWNsaWVudCIsIm1hbmFnZS11c2VycyIsInF1ZXJ5LXJlYWxtcyIsInZpZXctYXV0aG9yaXphdGlvbiIsInF1ZXJ5LWNsaWVudHMiLCJxdWVyeS11c2VycyIsIm1hbmFnZS1ldmVudHMiLCJtYW5hZ2UtcmVhbG0iLCJ2aWV3LWV2ZW50cyIsInZpZXctdXNlcnMiLCJ2aWV3LWNsaWVudHMiLCJtYW5hZ2UtYXV0aG9yaXphdGlvbiIsIm1hbmFnZS1jbGllbnRzIiwicXVlcnktZ3JvdXBzIl19LCJtYXN0ZXItcmVhbG0iOnsicm9sZXMiOlsidmlldy1yZWFsbSIsInZpZXctaWRlbnRpdHktcHJvdmlkZXJzIiwibWFuYWdlLWlkZW50aXR5LXByb3ZpZGVycyIsImltcGVyc29uYXRpb24iLCJjcmVhdGUtY2xpZW50IiwibWFuYWdlLXVzZXJzIiwicXVlcnktcmVhbG1zIiwidmlldy1hdXRob3JpemF0aW9uIiwicXVlcnktY2xpZW50cyIsInF1ZXJ5LXVzZXJzIiwibWFuYWdlLWV2ZW50cyIsIm1hbmFnZS1yZWFsbSIsInZpZXctZXZlbnRzIiwidmlldy11c2VycyIsInZpZXctY2xpZW50cyIsIm1hbmFnZS1hdXRob3JpemF0aW9uIiwibWFuYWdlLWNsaWVudHMiLCJxdWVyeS1ncm91cHMiXX0sIm1hdXRpYy1yZWFsbSI6eyJyb2xlcyI6WyJ2aWV3LWlkZW50aXR5LXByb3ZpZGVycyIsInZpZXctcmVhbG0iLCJtYW5hZ2UtaWRlbnRpdHktcHJvdmlkZXJzIiwiaW1wZXJzb25hdGlvbiIsImNyZWF0ZS1jbGllbnQiLCJtYW5hZ2UtdXNlcnMiLCJxdWVyeS1yZWFsbXMiLCJ2aWV3LWF1dGhvcml6YXRpb24iLCJxdWVyeS1jbGllbnRzIiwicXVlcnktdXNlcnMiLCJtYW5hZ2UtZXZlbnRzIiwibWFuYWdlLXJlYWxtIiwidmlldy1ldmVudHMiLCJ2aWV3LXVzZXJzIiwidmlldy1jbGllbnRzIiwibWFuYWdlLWF1dGhvcml6YXRpb24iLCJtYW5hZ2UtY2xpZW50cyIsInF1ZXJ5LWdyb3VwcyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJ1c2VyX2lkIjoiZGE1MmQwN2QtZTg4Ny00YjM4LTljOTUtZTA4ZmNiOGQ5YmU0IiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYXJ1bkBnbWFpbC5jb20ifQ.YHoX2hPvk88hrzg7Gj6O6MeK23MI05rlSvKh5_63cZbZXcKdzGDZUaAh3zSZvYXhZeDPutvvUBPvlAFqafPA6Hfwwd0gCPlgUxV1cYhabefIYKpooL-PJ8z9X6ZO-rjCiINFEVq6wGiazXw-OYvHDGh6Zh8CzEOwxQFl5NCx6BETx3g2zYS_vBV8A7QHWoy5h15dOU_ev0gi4HvMna8Ntr_E8RFVCojnTBBFFXrUoGTqs0s5xDTLs94xjOobcRKTfYoOyrDPZC5QmNiLhDyNvkimOkoRhuzP98LNJa88Peu4kzXRXLMvS8caUtqYU5rWfvhydN5VEJ_hPmgNqoJNlA",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\ncustomer(id:\"133\"){\r\n\tcustomerId\r\n    userId\r\n\tcommunicationPreferences\r\n\tfirstName\r\n    state\r\n    businessName\r\n    businessEmail\r\n    industryType\r\n    region\r\n    phone\r\n    currency\r\n    correlationId\r\n    organizationId{\r\n    \torganizationId\r\n    \torganizationName\r\n    \torganizationDesc\r\n    \tcorrelationId\r\n\t\tstate    \t\r\n    \t}\r\n\t\tcustomerUserCollection{\r\n\t\t\tfirstName\r\n    lastName\r\n    emailId\r\n    customerId\r\n    isActive\r\n    correlationId\r\n\t\t}\r\n\tcustomerAddresses {\r\n    \tcustomerAddressId\r\n    \taddressLine1\r\n    \taddressLine2\r\n    \taddressLine3\r\n\t\tcity\r\n    \tstate\r\n    \tsate\r\n    \tzipCode\r\n    \tcountryCode\r\n    \tcorrelationId\r\n    \t}\r\n    tiers{\r\n\t\ttierId\r\n    \ttierName\r\n    \tcorrelationId\r\n    \tstate\r\n    \tpackages{\r\n    \t\tpackageId\r\n    \t\tpackageName\r\n\t\t\tcorrelationId\r\n    \t\tstate\r\n    \t\tpackagesBenefits{\r\n    \t\t\tpackageBenefitId\r\n    \t\t\tcustomerBenefitId{\r\n    \t\t\t\tcustomerBenefitId\r\n\t\t\t\t\tbenefitName\r\n            description\r\n            imageURL\r\n            redirectURL\r\n    \t\t\t\tvendorId\r\n    \t\t\t\tstate\r\n    \t\t\t\tcorrelationId\r\n    \t\t\t}\r\n\t\t\t\tcorrelationId\r\n    \t\t\tstate\r\n    \t\t\t}\r\n    \t\t}\r\n    \t}\r\n    \tcustomerBenefits{\r\n    \t\tcustomerBenefitId\r\n    \t\tvendorId\r\n    \t\tstate\r\n    \t\tcorrelationId\r\n    \t}\r\n    \tdomainDetails{\r\n    \t\tsiteId\r\n    \t\tsiteCode\r\n    \t\ttemplateCode\r\n    \t\tsiteName\r\n    \t\tsiteDesc\r\n    \t\tdomainName\r\n    \t\tlogo\r\n    \t\ttagline\r\n    \t\tcorrelationId\r\n    \t}\r\n\t\tpackages{\r\n\t\t\tpackageId\r\n    \t\tpackageName\r\n\t\t\tcorrelationId\r\n    \t\tstate\r\n    \t\tpackagesBenefits{\r\n    \t\t\tpackageBenefitId\r\n    \t\t\tcustomerBenefitId{\r\n    \t\t\t\tcustomerBenefitId\r\n\t\t\t\t\tbenefitName\r\n            description\r\n            imageURL\r\n            redirectURL\r\n    \t\t\t\tvendorId\r\n    \t\t\t\tstate\r\n    \t\t\t\tcorrelationId\r\n    \t\t\t}\r\n\t\t\t\tcorrelationId\r\n    \t\t\tstate\r\n    \t\t\t}\r\n\t\t}\r\n\t\tsolicitationPackages{\r\n\t\t\tsolicitationPackageId\r\n    solicitationId\r\n    startFrom\r\n    endDate\r\n    isActive\r\n\tpackages{\r\n    \t\tpackageId\r\n    \t\tpackageName\r\n\t\t\tcorrelationId\r\n    \t\tstate\r\n    \t\tpackagesBenefits{\r\n    \t\t\tpackageBenefitId\r\n    \t\t\tcustomerBenefitId{\r\n    \t\t\t\tcustomerBenefitId\r\n    \t\t\t\tvendorId\r\n    \t\t\t\tstate\r\n    \t\t\t\tcorrelationId\r\n    \t\t\t}\r\n\t\t\t\tcorrelationId\r\n    \t\t\tstate\r\n    \t\t\t}\r\n    \t\t}\r\n\t\t}\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/customersWithoutAuth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customersWithoutAuth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decryption",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/decryption?memberid=fiX6YZYO7js=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"decryption"
+					],
+					"query": [
+						{
+							"key": "memberid",
+							"value": "fiX6YZYO7js="
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Encryption",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/encryption?memberid=565",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"encryption"
+					],
+					"query": [
+						{
+							"key": "memberid",
+							"value": "565"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

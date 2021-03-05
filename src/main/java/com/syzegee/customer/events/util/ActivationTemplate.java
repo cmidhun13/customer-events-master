@@ -1,0 +1,121 @@
+package com.syzegee.customer.events.util;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+
+/**
+ * @author Sagar
+ */
+@Slf4j
+@Component
+public class ActivationTemplate {
+    @Value("${mail.activationLink}")
+    private String activationLink;
+
+    public String createActivationTemplate(String email,String activationCode) {
+        log.info("Initiate createActivationTemplate in ActivationTemplate");
+        String template = "<!DOCTYPE html>\n"
+                + "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+                + "<head>\n"
+                + "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n"
+                + "<!--[if !mso]><!-->\n"
+                + "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n"
+                + "<!--<![endif]-->\n"
+                + "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n"
+                + "<title>Welcome Customer</title>\n"
+                + "<style type=\"text/css\">\n"
+                + "body {\n"
+                + "-webkit-text-size-adjust: 100%;\n"
+                + "-ms-text-size-adjust: 100%;\n"
+                + "margin: 0;\n"
+                + "padding: 0;\n"
+                + "font-family: \"Roboto\", sans-serif !important;\n"
+                + "}\n"
+                + ".wrapper {\n"
+                + "width: 100%;\n"
+                + "table-layout: fixed;\n"
+                + "-webkit-text-size-adjust: 100%;\n"
+                + "-ms-text-size-adjust: 100%;\n"
+                + "}\n"
+                + ".outer {\n"
+                + "width: 100%;\n"
+                + "}\n"
+                + "@media only screen and (max-width: 480px) {\n"
+                + "@-ms-viewport {\n"
+                + "width: 320px;\n"
+                + "}\n"
+                + "@viewport {\n"
+                + "width: 320px;\n"
+                + "}\n"
+                + "}\n"
+                + "@media screen and (min-width: 481px) {\n"
+                + ".container {\n"
+                + "width: 600px !important;\n"
+                + "}\n"
+                + "}\n"
+                + "@import url(\"https://fonts.googleapis.com/css?family=Roboto&display=swap\");\n"
+                + "</style>\n"
+                + "</head>\n"
+                + "\n"
+                + "<body style=\"background:#F5F5F5;\">\n"
+                + "<center class=\"wrapper\">\n"
+                + "<table\n"
+                + "class=\"outer\"\n"
+                + "align=\"left\"\n"
+                + "width=\"100%\"\n"
+                + "bgcolor=\"#F5F5F5\"\n"
+                + "cellpadding=\"0\"\n"
+                + "cellspacing=\"0\"\n"
+                + "border=\"0\"\n"
+                + ">\n"
+                + "<tr>\n"
+                + "<td style=\"padding: 120px 85px;\">\n"
+                + "<p>\n"
+                + "Hi <span style=\"color:#11a9dc\">" + email + "</span>,\n"
+                + "<br />\n"
+                + "<br />\n"
+                + "<br />\n"
+                + "We've received your request for a single-use code to active your\n"
+                + "Syzegee account.\n"
+                + "<br />\n"
+                + "<br />\n"
+                + "Your single-use code is:\n"
+                + "<span style=\"font-weight: 600\">" + activationCode + "</span>\n"
+                + "<br />\n"
+                + "<br />\n"
+                + "And\n"
+                + "<br />\n"
+                + "<br />\n"
+                + "Click here for complete your\n"
+                + "<a style=\"color:#11a9dc\" href=" + activationLink + ">signup</a> process\n"
+                + "<br />\n"
+                + "<br />\n"
+                + "Or\n"
+                + "<br />\n"
+                + "<br />\n"
+                + "Copy the below link and paste in your browser address bar\n"
+                + "<br />\n"
+                + "<br />\n"
+                + "<span  style=\"color:#11a9dc\"\n"
+                + "><a style=\"color:#11a9dc\" href=\"" + activationLink + "\">" + activationLink + "</a></span\n"
+                + ">\n"
+                + "<br />\n"
+                + "<br />\n"
+                + "<br />\n"
+                + "<br />\n"
+                + "Thanks,\n"
+                + "<br />\n"
+                + "The Syzegee team\n"
+                + "</p>\n"
+                + "</td>\n"
+                + "</tr>\n"
+                + "</table>\n"
+                + "</center>\n"
+                + "</body>\n"
+                + "</html>";
+        log.info("End of createActivationTemplate in ActivationTemplate");
+        return template;
+    }
+}

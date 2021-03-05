@@ -1,9 +1,0 @@
-<changelist name="Default_Changelist" date="1614945754388" recycled="false">
-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Default_Changelist/shelved.patch" />
-  <option name="DESCRIPTION" value="Default Changelist" />
-  <binary>
-    <option name="BEFORE_PATH" />
-    <option name="AFTER_PATH" value="gradle/wrapper/gradle-wrapper.jar" />
-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Default_Changelist/gradle-wrapper.jar" />
-  </binary>
-</changelist>
