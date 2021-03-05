@@ -1,0 +1,118 @@
+logging:
+  file: ${user.home}/customer_events/logs/customer_events.log
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://ruleengine.cyglulrs2sd6.us-east-2.rds.amazonaws.com:5432/customer_events
+    username: postgres
+    password: postgres
+  jmx:
+    enabled: false
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+url:
+  ruleEngine : http://ec2-18-188-157-35.us-east-2.compute.amazonaws.com:8091/syzegee/v1/ruleengine
+  createSite: http://3.133.121.247/studio/api
+#Change the SSO URL
+Crafter:
+  url: http://ec2-13-59-46-60.us-east-2.compute.amazonaws.com:8080/studio
+  userName: admin
+  firstName: Selva
+  lastName: Selva
+  email: selva@gmail.com
+  secureKey: secure
+  groups: system_admin
+  password: crafAuth!234
+  jessionIdValue : 11C07590C307F92C62AF428C15F2CD87
+  xXsrfTokenValue : 5a9faee5-0f90-47cd-90bd-776ad4503e36
+  createOption : clone
+  authenticationType : basic
+  blueprint : org.craftercms.blueprint.empty
+  description : My very first site!
+  remoteName : origin
+  remotePassword : Aswath@2020
+  remoteUrl : https://gitlab.com/szells/member/member-ui.git
+  remoteUsername : lakshmins
+  useRemote : true
+  authenticationUrl : /api/1/services/api/1/security/login.json
+  createUserUrl : /api/2/users
+  addMemberToGroupUrl : /api/2/groups/1/members
+  startSiteUrl : /api/1/publish/start.json
+  createSiteUrl : /api/1/services/api/1/site/create.json
+  writeContent:
+    writeContentUrl : /api/1/services/api/1/content/write-content.json
+    phase : onSave
+    path : /site/website/index.xml
+    fileName : index.xml
+    user : admin
+    contentType : /page/entry
+    unlock : true
+  deployment:
+    url: http://ec2-18-222-22-123.us-east-2.compute.amazonaws.com:9192/api/1/target/create
+    replace: true
+    env: default
+    templateName: remote
+    repoUrl: ssh://crafter@ec2-13-59-46-60.us-east-2.compute.amazonaws.com:/opt/crafter/data/repos/sites/member-templates/published
+    repoBranch: live
+    engineUrl: http://ec2-18-222-22-123.us-east-2.compute.amazonaws.com:9080
+
+#KAFKA
+kafka:
+  bootstrap-servers: 3.22.79.216:9092
+  consumer_groupId: customer
+
+rest:
+  security:
+    enabled: true
+    cors.allowed-origins: '*'
+    cors.allowed-headers: '*'
+    api-matcher: /v1/customer/** #api matcher to be protected using oauth. specify your api url as per your project
+    cors.allowed-methods: GET,POST,PUT,PATCH,DELETE,OPTIONS
+    cors.max-age: 3600
+    issuer-uri: http://ec2-18-191-199-237.us-east-2.compute.amazonaws.com:8080/auth/realms/internal
+    resource.id: roles
+
+#keycloak configuration
+
+keycloak:
+  realm: master
+  resource: szells-server
+  auth-server-url: http://ec2-18-191-199-237.us-east-2.compute.amazonaws.com:8080/auth
+  ssl-required: none
+
+security:
+  oauth2:
+    client:
+      client-id: szells-server
+      client-secret: cef2c6e8-8ed6-4932-84b2-8789c176a9c3
+      grant-type: password
+      user-authorization-uri: http://ec2-18-191-199-237.us-east-2.compute.amazonaws.com:8080/auth/realms/internal/protocol/openid-connect/token
+      access-token-uri: http://ec2-18-191-199-237.us-east-2.compute.amazonaws.com:8080/auth/realms/internal/protocol/openid-connect/token
+      scope: openid
+    resource:
+      token-info-uri: ${rest.security.issuer-uri}/protocol/openid-connect/token/introspect
+      user-info-uri: ${rest.security.issuer-uri}/protocol/openid-connect/userinfo
+      jwt.key-value: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn7W0KazGxTsC9BYae/1ZwWATcd9uWOxS12mzSBYduDKEhKl6tvXCUI9Iw5SocNoFRlZYILFvr6nwLNTQmfo5EGJs+kCXVf2bYWOWmfbcUW5enJAoGtXgAXQ9WpRpn/SZxPtJ06aSVet5y+sSGmtDWqHnCqcOcLcLE1juSUHWXG93U4XXpPOY64GWlddtQXZy34XIhwfv69UuBn51PlAVXagB/C/CoPD7Tbr6otGwoFOuHD5Yu9wSX4ArJqBxQ64yoyD5tZA8wt8PWsBrDIhXjxdI/qNzQEm1CNo21lPhlbLGqzc+Xx3Ge52t0qejrodrgaQIH0bL6fCorCNF5ajLAQIDAQAB
+
+requiredexecutiontimeinseconds: 10000
+
+mail:
+  activationLink : http://3.21.125.27/step3-activate
+  siteInviteLink : http://3.21.125.27/site-loader
+  from : dev.worthy1@gmail.com
+  fromName : Szells
+  host : email-smtp.us-east-1.amazonaws.com
+  smtpUsername : AKIA4DYGT4Q7F7QPCF3Y
+  smtpPassword : BMz+dvWfVQXLtrXh8vG9aL98ecIsnkGQhj4Lb4DUGEaP
+  port : 587
+  subject : Welcome Szells Platform !!
