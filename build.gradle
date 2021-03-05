@@ -37,7 +37,7 @@ configurations {
 }
 
 repositories {
-    mavenCentral()5
+    mavenCentral()
     //devops code start
     jcenter()
     //devops code End
@@ -93,6 +93,9 @@ dependencies {
     compile "com.sun.xml.bind:jaxb-impl:2.2-promoted-b65"
     implementation "io.springfox:springfox-swagger2:$swaggerVersion"
     implementation "io.springfox:springfox-swagger-ui:$swaggerVersion"
+    //Devops code starts here
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    //Devops code ends here
 
 //     Keycloak
 //     compile 'org.springframework.boot:spring-boot-starter-security'
