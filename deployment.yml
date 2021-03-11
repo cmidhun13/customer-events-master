@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-api-example
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spring-boot-api-example
+  template:
+    metadata:
+      labels:
+        app: spring-boot-api-example
+    spec:
+      containers:
+        - image: cmidhun/spring-boot-api-example:0.1.0-SNAPSHOT
+          name: spring-boot-api-example
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              name: http
