@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: customer-events-master
+  name: customer-events
   namespace: default
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: customer-events-master
+      app: customer-events
   template:
     metadata:
       labels:
-        app: customer-events-master
+        app: customer-events
     spec:
       containers:
-        - image: cmidhun/customer-events-master:0.1.0-SNAPSHOT
-          name: customer-events-master
+        - image: cmidhun/customer-events:0.1.0-SNAPSHOT
+          name: customer-events
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
