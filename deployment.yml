@@ -14,7 +14,7 @@ spec:
         app: customer-events
     spec:
       containers:
-        - image: cmidhun/customer-events:0.1.0-SNAPSHOT
+        - image: cmidhun/customer-events:0.0.1-SNAPSHOT
           name: customer-events
           imagePullPolicy: Always
           ports:
