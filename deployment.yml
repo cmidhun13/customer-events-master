@@ -19,7 +19,7 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
-            - name: http
+              name: http
             resources:
               requests:
                 memory: "50Mi"
