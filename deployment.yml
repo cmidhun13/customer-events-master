@@ -17,12 +17,12 @@ spec:
         - image: cmidhun/customer-events:0.0.1-SNAPSHOT
           name: customer-events
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "500m"
+            limits:
+              memory: "500Mi"
+              cpu: "2000m"
           ports:
             - containerPort: 8080
-      resources:
-        requests:
-          memory: "50Mi"
-          cpu: "500m"
-        limits:
-          memory: "500Mi"
-          cpu: "2000m"
